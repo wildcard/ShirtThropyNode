@@ -1,0 +1,2 @@
+Express server listening on port \\.\pipe\63b57b53-7f25-493f-af40-9dd4e82670f7
+[90mGET /content/img/ScanTheShirtThropy.jpg [33m404 [90m6ms[0m

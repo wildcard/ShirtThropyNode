@@ -1,0 +1,5 @@
+Express server listening on port \\.\pipe\0636ad78-6157-4f0f-add6-0676335359f9
+[90mGET /content/img/ShirtThropy-Logo.jpg [33m404 [90m4ms[0m
+[90mGET /public/img/ShirtThropy-Logo.jpg [32m200 [90m4ms - 6.41kb[0m
+[90mGET / [32m200 [90m744ms - 860b[0m
+[90mGET /public/img/ShirtThropy-Logo.jpg [36m304 [90m4ms[0m

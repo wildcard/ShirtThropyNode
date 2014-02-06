@@ -1,0 +1,19 @@
+TypeError: C:\Users\livshitz\Documents\GitHub\ShirtThropyNode\views\index.jade:24
+    22|                 h3 You buy a shirt
+    23|                 .blockImage 
+  > 24|                     img(src=/content/img/ScanTheShirtThropy.jpg)
+    25|             .block.col-xs-2
+    26|                 h3 People scan the shirt
+    27|                 .blockImage 
+
+Cannot call method 'charCodeAt' of undefined
+    at isPunctuator (C:\Users\livshitz\Documents\GitHub\ShirtThropyNode\node_modules\jade\node_modules\character-parser\index.js:157:16)
+    at isRegexp (C:\Users\livshitz\Documents\GitHub\ShirtThropyNode\node_modules\jade\node_modules\character-parser\index.js:212:7)
+    at Function.parseChar (C:\Users\livshitz\Documents\GitHub\ShirtThropyNode\node_modules\jade\node_modules\character-parser\index.js:102:35)
+    at Object.Lexer.attrs (C:\Users\livshitz\Documents\GitHub\ShirtThropyNode\node_modules\jade\lib\lexer.js:672:39)
+    at Object.Lexer.next (C:\Users\livshitz\Documents\GitHub\ShirtThropyNode\node_modules\jade\lib\lexer.js:855:15)
+    at Object.Lexer.lookahead (C:\Users\livshitz\Documents\GitHub\ShirtThropyNode\node_modules\jade\lib\lexer.js:113:46)
+    at Parser.lookahead (C:\Users\livshitz\Documents\GitHub\ShirtThropyNode\node_modules\jade\lib\parser.js:111:23)
+    at Parser.peek (C:\Users\livshitz\Documents\GitHub\ShirtThropyNode\node_modules\jade\lib\parser.js:88:17)
+    at Parser.tag (C:\Users\livshitz\Documents\GitHub\ShirtThropyNode\node_modules\jade\lib\parser.js:704:22)
+    at Parser.parseTag (C:\Users\livshitz\Documents\GitHub\ShirtThropyNode\node_modules\jade\lib\parser.js:690:17)

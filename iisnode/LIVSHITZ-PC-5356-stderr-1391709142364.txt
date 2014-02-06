@@ -1,0 +1,1 @@
+Error: ENOENT, stat 'C:\Users\livshitz\Documents\GitHub\ShirtThropyNode\public\ScanTheShirtThropy.jpg'
