@@ -1,10 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h1= title
+    p Welcome to #{title}
 
-  .intro-background.container
+    
+    style(type='text/css')
+        | body { width:480px; min-height:800px; font-family: 'Roboto', Arial, sans-serif; }
+
+    .intro-background.container
     .row    
         .col-xs-4
             h1 Total donations so far
@@ -15,19 +19,19 @@ block content
             h1 154
             button Get a shirt
             
-     .intro-howItWorks.container
+        .intro-howItWorks.container
         asd    
         .row    
             .block.col-xs-2
                 h3 You buy a shirt
                 .blockImage 
-                    img(src='/public/img/ShirtThropy-Logo.jpg')
+                    img(src='/public/img/ShirtThropy_Logo.png')
             .block.col-xs-2
                 h3 People scan the shirt
                 .blockImage 
-                    img
+                    img(src='/public/img/ShirtThropy_Scan.jpg')
             .block.col-xs-2
                 h3 You get donations
                 .blockImage 
-                    img
+                    img(src='/public/img/Money.png')
             
