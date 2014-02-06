@@ -3,10 +3,7 @@
  * GET users listing.
  */
 
-exports.profile = function(req, res){
-    //res.send("respond with a resource");
-    res.render('profile',
-        {
-            id: req.param.id
-        });
+exports.list = function(req, res){
+    var foo = {name: 'foobar'};
+    res.render('users', foo);
 };
