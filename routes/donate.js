@@ -3,6 +3,15 @@
  */
 
 
+
 exports.donate = function(req, res){
-    res.send("respond with a resource");
+    // TODO: call contoller to
+    res.render('donate', { id: req.params.id });
+};
+
+exports.donatePayPal = function(req, res){
+    // TODO: call to paypal api
+    // req.form.name
+
+    res.render('profile', { id: req.params.id });
 };
