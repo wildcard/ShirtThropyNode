@@ -11,13 +11,13 @@ block content
         | .profile-title {}
 
     .container
-        h1.profile-title.jumbotron Charles Homelessman
+        h1.profile-title.jumbotron #{fullname}
         div.profile-image.circular
         div.jumbotron
-            p.profile-description.  Was a British politician who was the Prime Minister of the United Kingdom from 1940 to 1945 and again from 1951 to 1955. Widely regarded as one of the greatest wartime leaders of the 20th century, Churchill was also an officer in the British Army, a historian, a writer, and an artist. He is the only British Prime Minister to have won the Nobel Prize in Literature, and was the first person to be made an honorary citizen of the United States.
+            p.profile-description.  #{description}
             br 
             .progress
                 .progress-bar(role="progressbar", aria-valuenow="60", aria-valuemin="0", aria-valuemax="100", style="width: 60%;")
                 span.sr-only 60% Complete
-            div.profile-progress.lead.text-center 69.34$ / 80.01$
-        a.btnDonate.btn.btn-primary Donate
+            div.profile-progress.lead.text-center #{donation_current}$ / #{donation_target}$
+        a.btnDonate.btn.btn-primary(onClick='alert("whoaaa, cool")') Donate
