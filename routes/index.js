@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'ShirtThophy' });
+  res.render('index', { title: 'ShirtThophy' , isNoHeader: true, isNoFooter: true });
 };

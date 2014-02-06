@@ -1,2 +1,4 @@
 
 /iisnode
+/iisnode/*
+iisnode/index.html

@@ -66,15 +66,23 @@ db.on('drain', function() {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+app.get('/newCause', newCause.list);
+app.get('/myDonations', myDonations.list);
+app.get('/helpUs', helpUs.list);
+
+
+
 app.get('/doante/:id', donate.donate);
 
 app.get('/public/*', function(req, res){
     res.sendfile(req.params[0], {root: './public'});
 });
+
+app.get('/bower_components/*', function(req, res){
+    res.sendfile(req.params[0], {root: './bower_components'});
+});
+
 app.get('/users', user.list);
-app.get('/doante/:id', donate.donate);
-
-
 app.get('/donate/:id', donate.donate);
 
 // call to paypal
