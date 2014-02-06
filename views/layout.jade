@@ -16,6 +16,7 @@ html
       | h1, h2, h3, h4, h5, p, a, div, button { font-family: 'Roboto', Arial, sans-serif; font-weight:100; }
       | h1, h2, h3, h4, h5 { color:white; }
       | a, .link { color:blue }
+      | a:hover, .link:hover { text-decoration:none; }
   body
       if !isNoHeader
         include header
