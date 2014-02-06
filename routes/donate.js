@@ -9,10 +9,23 @@ exports.donate = function(req, res){
     res.render('donate', { id: req.params.id });
 };
 
+exports.donatePayPalApprove = function(req, res){
+    // return from paypal
+
+    // req.params.status;
+    // req.params.id;
+    if(req.params.status){
+        res.render('thankyou', {  });
+    }
+    else{
+        // TODO: redierct to not successful
+    }
+};
+
 exports.donatePayPal = function(req, res){
     // TODO: call to paypal api
-    //req.form.amount
-
+    // req.form.amount
+    // req.form.id
 
     var paypal_api = require('paypal-rest-sdk');
 
@@ -29,8 +42,8 @@ exports.donatePayPal = function(req, res){
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http:\/\/ShirtThropy.kadosh.co\/payments\/success\/true",
-            "cancel_url": "http:\/\/localhost\/test\/rest\/rest-api-sdk-php\/sample\/payments\/ExecutePayment.php?success=false"
+            "return_url": "http:\/\/ShirtThropy.kadosh.co\/payments\/" + req.form.id + "\/success\/true",
+            "cancel_url": "http:\/\/ShirtThropy.kadosh.co\/payments\/" + req.form.id + "\/success\/false"
         },
         "transactions": [{
             "amount": {
@@ -53,5 +66,5 @@ exports.donatePayPal = function(req, res){
         }
     });
 
-    res.render('profile', { id: req.params.id });
+    //res.render('profile/' + req.params.id, { id: req.params.id });
 };
