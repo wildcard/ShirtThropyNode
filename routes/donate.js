@@ -6,7 +6,7 @@
 
 exports.donate = function(req, res){
     // TODO: call contoller to
-    var profile = {
+    var cause = {
         id: req.params.id,
         image: '/public/img/Homelessman.jpg',
         cause_title: 'Charles Homelessman',
