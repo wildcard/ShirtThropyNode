@@ -34,11 +34,11 @@ if ('development' == app.get('env')) {
 // register router routes
 
 // database
-var appDb = dirty('app.db'),
-    sectionsDb;
-
 var dirty = require('dirty');
 var db = dirty('user.db');
+
+var appDb = dirty('app.db'),
+    sectionsDb;
 
 db.on('load', function() {
     db.set('john', {eyes: 'blue'});
@@ -62,6 +62,14 @@ db.on('drain', function() {
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/doante/:id', donate.donate);
+
+app.get('/public/*', function(req, res){
+    res.sendfile(req.params[0], {root: './public'});
+});
+
+app.get('/bower_components/*', function(req, res){
+    res.sendfile(req.params[0], {root: './bower_components'});
+});
 
 app.get('/donate/:id', donate.donate);
 
