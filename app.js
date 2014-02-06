@@ -37,6 +37,36 @@ if ('development' == app.get('env')) {
 }
 
 // register router routes
+app.get('/', routes.index);
+app.get('/users', user.list);
+app.get('/newCause', newCause.list);
+app.get('/myDonations', myDonations.list);
+app.get('/helpUs', helpUs.list);
+app.get('/doante/:id', donate.donate);
+
+app.get('/public/*', function(req, res){
+    res.sendfile(req.params[0], {root: './public'});
+});
+
+app.get('/bower_components/*', function(req, res){
+    res.sendfile(req.params[0], {root: './bower_components'});
+});
+
+app.get('/users', user.list);
+app.get('/donate/:id', donate.donate);
+
+// call to paypal
+app.post('/pay', donate.donatePayPal);
+
+// return from paypal
+app.get('/payments/:id/success/:status', donate.donatePayPalApprove);
+
+app.get('/profile/:id', function(req, res){
+    var body = 'Hello World';
+    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Content-Length', Buffer.byteLength(body));
+    res.end(body);
+});
 
 // database
 var dirty = require('dirty');
@@ -64,36 +94,7 @@ db.on('drain', function() {
 
 //
 
-app.get('/', routes.index);
-app.get('/users', user.list);
-app.get('/newCause', newCause.list);
-app.get('/myDonations', myDonations.list);
-app.get('/helpUs', helpUs.list);
 
-
-
-app.get('/doante/:id', donate.donate);
-
-app.get('/public/*', function(req, res){
-    res.sendfile(req.params[0], {root: './public'});
-});
-
-app.get('/bower_components/*', function(req, res){
-    res.sendfile(req.params[0], {root: './bower_components'});
-});
-
-app.get('/users', user.list);
-app.get('/donate/:id', donate.donate);
-
-// call to paypal
-app.post('/pay', donate.donatePayPal);
-
-app.get('/profile/:id', function(req, res){
-    var body = 'Hello World';
-    res.setHeader('Content-Type', 'text/plain');
-    res.setHeader('Content-Length', Buffer.byteLength(body));
-    res.end(body);
-});
 
 http.createServer(app).listen(
     app.get('port'),
