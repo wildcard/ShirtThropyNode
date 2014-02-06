@@ -60,6 +60,8 @@ db.on('drain', function() {
 //
 
 app.get('/', routes.index);
+app.get('/users', user.list);
+app.get('/doante/:id', donate.donate);
 
 app.get('/donate/:id', donate.donate);
 

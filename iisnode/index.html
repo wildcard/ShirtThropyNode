@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>iisnode logs</title>
+    <style type="text/css">
+        body
+        {
+            font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
+        }
+        table
+        {
+            border-collapse: collapse;
+        }
+        td, th
+        {
+            border: 1px solid lightgray;
+            padding: 3px 7px 2px 7px;
+        }
+        th
+        {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            background-color: Gray;
+            color: #ffffff;
+        }
+        td.stderr
+        {
+            color: Red;
+        }
+    </style>
+</head>
+<body>
+    <table id="logFilesTable">
+        <tr>
+            <th>
+                Computer name
+            </th>
+            <th>
+                PID
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Created
+            </th>
+            <th>
+                Link
+            </th>
+        </tr>
+    </table>
+    <p id="lastUpdated"></p>
+    <script type="text/javascript">
+
+        // this is replaced with actual data at runtime by code in interceptor.js
+        var logFiles = [{"file":"LIVSHITZ-PC-10736-stdout-1391709359049.txt","computername":"LIVSHITZ-PC","pid":10736,"type":"stdout","created":1391709359049},{"file":"LIVSHITZ-PC-11104-stdout-1391709260115.txt","computername":"LIVSHITZ-PC","pid":11104,"type":"stdout","created":1391709260115},{"file":"LIVSHITZ-PC-11220-stdout-1391709056521.txt","computername":"LIVSHITZ-PC","pid":11220,"type":"stdout","created":1391709056521},{"file":"LIVSHITZ-PC-12072-stdout-1391709001689.txt","computername":"LIVSHITZ-PC","pid":12072,"type":"stdout","created":1391709001689},{"file":"LIVSHITZ-PC-5356-stderr-1391709142364.txt","computername":"LIVSHITZ-PC","pid":5356,"type":"stderr","created":1391709142364},{"file":"LIVSHITZ-PC-5356-stdout-1391709142363.txt","computername":"LIVSHITZ-PC","pid":5356,"type":"stdout","created":1391709142363},{"file":"LIVSHITZ-PC-5964-stdout-1391709177913.txt","computername":"LIVSHITZ-PC","pid":5964,"type":"stdout","created":1391709177913},{"file":"LIVSHITZ-PC-6292-stderr-1391709475747.txt","computername":"LIVSHITZ-PC","pid":6292,"type":"stderr","created":1391709475747},{"file":"LIVSHITZ-PC-6292-stdout-1391709475739.txt","computername":"LIVSHITZ-PC","pid":6292,"type":"stdout","created":1391709475739},{"file":"LIVSHITZ-PC-7096-stdout-1391709298572.txt","computername":"LIVSHITZ-PC","pid":7096,"type":"stdout","created":1391709298572},{"file":"LIVSHITZ-PC-7992-stderr-1391709181920.txt","computername":"LIVSHITZ-PC","pid":7992,"type":"stderr","created":1391709181920},{"file":"LIVSHITZ-PC-7992-stdout-1391709181916.txt","computername":"LIVSHITZ-PC","pid":7992,"type":"stdout","created":1391709181916},{"file":"LIVSHITZ-PC-8288-stderr-1391709157114.txt","computername":"LIVSHITZ-PC","pid":8288,"type":"stderr","created":1391709157114},{"file":"LIVSHITZ-PC-8288-stdout-1391709157112.txt","computername":"LIVSHITZ-PC","pid":8288,"type":"stdout","created":1391709157112},{"file":"LIVSHITZ-PC-8332-stdout-1391709244606.txt","computername":"LIVSHITZ-PC","pid":8332,"type":"stdout","created":1391709244606},{"file":"LIVSHITZ-PC-8444-stderr-1391709263294.txt","computername":"LIVSHITZ-PC","pid":8444,"type":"stderr","created":1391709263294},{"file":"LIVSHITZ-PC-8444-stdout-1391709263288.txt","computername":"LIVSHITZ-PC","pid":8444,"type":"stdout","created":1391709263288},{"file":"LIVSHITZ-PC-8760-stdout-1391709252188.txt","computername":"LIVSHITZ-PC","pid":8760,"type":"stdout","created":1391709252188},{"file":"LIVSHITZ-PC-9488-stdout-1391709108909.txt","computername":"LIVSHITZ-PC","pid":9488,"type":"stdout","created":1391709108909},{"file":"LIVSHITZ-PC-9728-stderr-1391709228483.txt","computername":"LIVSHITZ-PC","pid":9728,"type":"stderr","created":1391709228483},{"file":"LIVSHITZ-PC-9728-stdout-1391709228479.txt","computername":"LIVSHITZ-PC","pid":9728,"type":"stdout","created":1391709228479},{"file":"LIVSHITZ-PC-9776-stdout-1391709180638.txt","computername":"LIVSHITZ-PC","pid":9776,"type":"stdout","created":1391709180638}];
+        var lastUpdated = 1391709550989;
+        var date = new Date();
+
+        date.setTime(lastUpdated);
+        document.getElementById('lastUpdated').innerHTML = 'Index was last updated ' + date;
+
+        logFiles.sort(function (a, b) {
+            return b.created - a.created;
+        });
+
+        var logFilesTable = document.getElementById("logFilesTable");
+        for (var i = 0; i < logFiles.length; i++) {
+            var logFile = logFiles[i];
+            date.setTime(logFile.created);
+            var row = logFilesTable.insertRow(-1);
+            var computerNameCell = row.insertCell(0);
+            var pidCell = row.insertCell(1);
+            var typeCell = row.insertCell(2);
+            var dateCell = row.insertCell(3);
+            var logCell = row.insertCell(4);
+            computerNameCell.innerHTML = logFile.computername;
+            pidCell.innerHTML = logFile.pid.toString();
+            typeCell.innerHTML = logFile.type;
+            typeCell.setAttribute('class', logFile.type);
+            dateCell.innerHTML = date.toString();
+            logCell.innerHTML = '<a href="' + logFile.file + '">log</a>';
+        };
+
+    </script>
+</body>
+</html>

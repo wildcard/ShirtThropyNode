@@ -1,5 +1,37 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h1= title
+    p Welcome to #{title}
+
+    
+    style(type='text/css')
+        | 
+
+    .intro-background.container
+    .row    
+        .col-xs-4
+            h1 Total donations so far
+            h1 27463$
+            button Donate us
+        .col-xs-4
+            h1 Total shirts around the world
+            h1 154
+            button Get a shirt
+            
+        .intro-howItWorks.container
+          
+        .row    
+            .block.col-xs-2
+                h3 You buy a shirt
+                .blockImage 
+                    img(src='/public/img/ShirtThropy_Logo.png')
+            .block.col-xs-2
+                h3 People scan the shirt
+                .blockImage 
+                    img(src='/public/img/ShirtThropy_Scan.jpg')
+            .block.col-xs-2
+                h3 You get donations
+                .blockImage 
+                    img(src='/public/img/Money.png')
+            
