@@ -11,8 +11,32 @@ block content
         | .donateAmount { width:100%; text-align:center; margin:0; }
         | .donateAmount label { padding:10px 20px; font-size:48px; }
         | .cause-title {}
+        | .profile { color:# }
+        | .profile-avatar { width:50px; height:50px; background-size:cover; display:inline-block; float:left; }
+        | .profile-rating { float:right; }
+        | .profile-details { margin-left:20px; display:inline-block; float:left; }
+        | .profile-total-donations { float:right; clear:right; }
 
     .container
+        .profile.well
+            .profile-avatar.circular(style="background-image:url('#{profile_avatar}')")
+            .profile-details
+                b #{profile_firstName} 
+                br
+                | #{profile_lastName} 
+            .profile-rating
+                i.fa.fa-heart
+                i.fa.fa-heart
+                i.fa.fa-heart
+                i.fa.fa-heart-o
+                i.fa.fa-heart-o
+            .profile-total-donations 
+                span.small Total donations: 
+                | 1,150$
+
+            .clearfix
+                
+
         form(action='/pay', method='post')
             input(type='hidden', name='id', id='id' , value='#{id}') 
             div(style='color:white') Donate for cause:

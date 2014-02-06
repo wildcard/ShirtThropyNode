@@ -9,12 +9,15 @@ exports.donate = function(req, res){
     var cause = {
         id: req.params.id,
         image: '/public/img/Homelessman.jpg',
+        profile_avatar: '/public/img/profile-avatar.jpg',
+        profile_firstName: 'Kobi',
+        profile_lastName: 'Kadosh',
         cause_title: 'Charles Homelessman',
         description: 'Was a British politician who was the Prime Minister of the United Kingdom from 1940 to 1945 and again from 1951 to 1955. Widely regarded as one of the greatest wartime leaders of the 20th century, Churchill was also an officer in the British Army, a historian, a writer, and an artist. He is the only British Prime Minister to have won the Nobel Prize in Literature, and was the first person to be made an honorary citizen of the United States.',
         donation_current: 39.34,
         donation_target: 80.01
     }
-    res.render('donate', profile);
+    res.render('donate', cause);
 };
 
 exports.donatePayPalApprove = function(req, res){
