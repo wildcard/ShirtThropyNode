@@ -10,6 +10,11 @@ var donate = require('./routes/donate');
 var http = require('http');
 var path = require('path');
 
+var newCause = require('./routes/newCause');
+var myDonations = require('./routes/myDonations');
+var helpUs = require('./routes/helpUs');
+
+
 var app = express();
 
 // all environments
@@ -36,6 +41,9 @@ app.get('/public/*', function(req, res){
     res.sendfile(req.params[0], {root: './public'});
 });
 app.get('/users', user.list);
+app.get('/myDonations', myDonations.list);
+app.get('/newCause', newCause.list);
+app.get('/helpUs', helpUs.list);
 app.get('/donate/:id', donate.list);
 // 
 

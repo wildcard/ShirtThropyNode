@@ -6,7 +6,8 @@ block content
         | .intro-header { margin:50px auto; width:400px; text-align:center; }
         | .intro-header h1 { margin:0; }
         | .intro-header h2 { margin:0; }
-        | button { border:none; padding:10px; display:block; width:100%; margin:20px 0; cursor:pointer; }
+        | .button { border:none; padding:10px; display:block; width:100%; margin:20px 0; cursor:pointer; text-align:center; 
+        | text-decoration:none; }
 
 
     .intro-header
@@ -20,11 +21,11 @@ block content
     br
 
 
-    button(style='background:rgba(233,170,77, .6)')
+    a.button(style='background:rgba(233,170,77, .6)', href='/newCause')
         h1 New Cause
-    button(style='background:rgba(0,121,193, .6)')
+    a.button(style='background:rgba(0,121,193, .6)', href='/myDonations')
         h1 My Donations
-    button(style='background:rgba(90,189,92, .6)')
+    a.button(style='background:rgba(90,189,92, .6)', href='/helpUs')
         h1 Help Us
 
 
