@@ -1,2 +1,0 @@
-Error: ENOENT, stat 'C:\Users\livshitz\Documents\GitHub\ShirtThropyNode\content\[object Object]'
-Error: ENOENT, stat 'C:\Users\livshitz\Documents\GitHub\ShirtThropyNode\content\[object Object]'

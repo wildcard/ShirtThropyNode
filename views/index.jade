@@ -1,66 +1,65 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-
-  .intro-background.container
-    .row    
-        .col-xs-4
-            h1 Total donations so far
-            h1 27463$
-            button Donate us
-        .col-xs-4
-            h1 Total shirts around the world
-            h1 154
-            button Get a shirt
-            
-     .intro-howItWorks.container
-        asd    
-        .row    
-            .block.col-xs-2
-                h3 You buy a shirt
-                .blockImage 
-                    img(src='/public/img/ShirtThropy-Logo.jpg')
-            .block.col-xs-2
-                h3 People scan the shirt
-                .blockImage 
-                    img
-            .block.col-xs-2
-                h3 You get donations
-                .blockImage 
-                    img
-                h1= title
-    p Welcome to #{title}
-
-    
     style(type='text/css')
-        | 
+        | body { padding:0; }
+        | .intro-header { margin:50px auto; width:400px; text-align:center; }
+        | .intro-header h1 { margin:0; }
+        | .intro-header h2 { margin:0; }
+        | .button { border:none; padding:10px; display:block; width:100%; margin:20px 0; cursor:pointer; text-align:center; 
+        | text-decoration:none; }
 
-    .intro-background.container
-    .row    
-        .col-xs-4
-            h1 Total donations so far
-            h1 27463$
-            button Donate us
-        .col-xs-4
-            h1 Total shirts around the world
-            h1 154
-            button Get a shirt
+
+    .intro-header
+        h1(style='font-size:48pt;') ShirtThropy
+        h2(style='font-size:24pt;') Help the helpless.
+
+    br
+    br
+    br
+    br
+    br
+
+
+    a.button(style='background:rgba(233,170,77, .6)', href='/newCause')
+        h1 New Cause
+    a.button(style='background:rgba(0,121,193, .6)', href='/myDonations')
+        h1 My Donations
+    a.button(style='background:rgba(90,189,92, .6)', href='/helpUs')
+        h1 Help Us
+
+
+    br
+    br
+    br
+    br
+    br
+
+    div(style='display:none')
+        .intro-background.container
+            .row    
+                .col-xs-4
+                    h1 Total donations so far
+                    h1 27463$
+                    button Donate us
+                .col-xs-4
+                    h1 Total shirts around the world
+                    h1 154
+                    button Get a shirt
             
-        .intro-howItWorks.container
+                .intro-howItWorks.container
           
-        .row    
-            .block.col-xs-2
-                h3 You buy a shirt
-                .blockImage 
-                    img(src='/public/img/ShirtThropy_Logo.png')
-            .block.col-xs-2
-                h3 People scan the shirt
-                .blockImage 
-                    img(src='/public/img/ShirtThropy_Scan.jpg')
-            .block.col-xs-2
-                h3 You get donations
-                .blockImage 
-                    img(src='/public/img/Money.png')
+                .row    
+                    .block.col-xs-2
+                        h3 You buy a shirt
+                        .blockImage 
+                            img(src='/public/img/ShirtThropy_Logo.png')
+                    .block.col-xs-2
+                        h3 People scan the shirt
+                        .blockImage 
+                            img(src='/public/img/ShirtThropy_Scan.jpg')
+                    .block.col-xs-2
+                        h3 You get donations
+                        .blockImage 
+                            img(src='/public/img/Money.png')
             

@@ -12,6 +12,11 @@ var donate = require('./routes/donate');
 var http = require('http');
 var path = require('path');
 
+var newCause = require('./routes/newCause');
+var myDonations = require('./routes/myDonations');
+var helpUs = require('./routes/helpUs');
+
+
 var app = express();
 
 // all environments
@@ -66,10 +71,9 @@ app.get('/doante/:id', donate.donate);
 app.get('/public/*', function(req, res){
     res.sendfile(req.params[0], {root: './public'});
 });
+app.get('/users', user.list);
+app.get('/doante/:id', donate.donate);
 
-app.get('/bower_components/*', function(req, res){
-    res.sendfile(req.params[0], {root: './bower_components'});
-});
 
 app.get('/donate/:id', donate.donate);
 
