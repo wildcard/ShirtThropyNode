@@ -3,6 +3,7 @@
  */
 
 
-exports.donate = function(req, res){
-    res.send("respond with a resource");
+exports.list = function(req, res){
+    var foo = { name: 'foobar', id: req.param("id") };
+    res.render('donate', foo);
 };

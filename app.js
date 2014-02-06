@@ -36,8 +36,8 @@ app.get('/public/*', function(req, res){
     res.sendfile(req.params[0], {root: './public'});
 });
 app.get('/users', user.list);
-app.get('/doante/:id', donate.donate);
-
+app.get('/donate/:id', donate.list);
+// 
 
 
 app.get('/profile/', function(req, res){
