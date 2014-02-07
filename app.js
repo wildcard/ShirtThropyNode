@@ -55,17 +55,14 @@ app.get('/bower_components/*', function(req, res){
 app.get('/users', user.list);
 app.get('/donate/:id', donate.donate);
 
-// call to paypal
-app.post('/pay', donate.donatePayPal);
-
 // return from paypal
 app.get('/payments/:id/success/:status', donate.donatePayPalApprove);
 
+// call to paypal
+app.post('/pay', donate.donatePayPal);
+
 app.get('/profile/:id', function(req, res){
-    var body = 'Hello World';
-    res.setHeader('Content-Type', 'text/plain');
-    res.setHeader('Content-Length', Buffer.byteLength(body));
-    res.end(body);
+    // TODO: seeker profile
 });
 
 // database

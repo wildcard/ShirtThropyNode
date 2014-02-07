@@ -40,8 +40,8 @@ exports.donatePayPal = function(req, res){
     var config_opts = {
         'host': 'api.sandbox.paypal.com',
         'port': '',
-        'client_id': 'EBWKjlELKMYqRNQ6sYvFo64FtaRLRR5BdHEESmha49TM',
-        'client_secret': 'EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM'
+        'client_id': 'AQ6TShBsSnnVQ-uydRXkPOUie7WgesLBuivKjAC__dbRSzPuiFuGMtocMVa-',
+        'client_secret': 'ELWpIhCxsSm2N-Amz5k7M61LC_acKv_JizZTIUm1-hBnhvqJOK-_rlSzXC_z'
     };
 
     var create_payment_json = {
@@ -50,28 +50,42 @@ exports.donatePayPal = function(req, res){
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http:\/\/ShirtThropy.kadosh.co\/payments\/" + req.form.id + "\/success\/true",
-            "cancel_url": "http:\/\/ShirtThropy.kadosh.co\/payments\/" + req.form.id + "\/success\/false"
+            "return_url": "http:\/\/localhost:3000\/payments\/" + req.body.id + "\/success\/true",
+            "cancel_url": "http:\/\/localhost:3000\/payments\/" + req.body.id + "\/success\/false"
+
+            //"return_url": "http:\/\/ShirtThropy.kadosh.co\/payments\/" + req.body.id + "\/success\/true",
+            //"cancel_url": "http:\/\/ShirtThropy.kadosh.co\/payments\/" + req.body.id + "\/success\/false"
         },
         "transactions": [{
             "amount": {
                 "currency": "USD",
-                "total": req.form.amount
+                "total": req.body.amount
             },
             "description": "This is the payment description."
         }]
     };
 
 
-    paypal_api.payment.create(create_payment_json, config_opts, function (err, res) {
-        if (err) {
-            throw err;
-        }
+    paypal_api.payment.create(create_payment_json,
+        config_opts,
+        function (err, payment) {
+            if (err) {
+                throw err;
+            }
 
-        if (res) {
-            console.log("Create Payment Response");
-            console.log(res);
-        }
+            if (payment) {
+                console.log("Create Payment Response");
+                console.log(payment);
+
+                var redirectUrl;
+                for(var i=0; i < payment.links.length; i++) {
+                    var link = payment.links[i];
+                    if (link.method === 'REDIRECT') {
+                        redirectUrl = link.href;
+                    }
+                }
+                res.redirect(redirectUrl);
+            }
     });
 
     //res.render('profile/' + req.params.id, { id: req.params.id });
