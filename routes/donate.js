@@ -17,7 +17,7 @@ exports.donate = function(req, res){
         causes: [1],
         data: {
             rank: 5,
-            total_donations: "2530",
+            total_donations: "2530"
         }
     }
 
