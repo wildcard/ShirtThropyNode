@@ -2,7 +2,7 @@
 extends layout
 block content
     style
-        | .cause-title { text-align:center; margin:20px 0 20px 0;}
+        | .cause-title { text-align:center; margin:0px 0 0px 0;}
         | .cause-image { width:200px; height:200px; background:url(#{image});
         |    background-size:cover; margin:auto; margin-bottom:-60px; z-index:1; position:relative; }
         | .cause-description { text-align:left; margin-top:20px; padding-top:20px; line-height: 24px; }
@@ -11,17 +11,43 @@ block content
         | .donateAmount { width:100%; text-align:center; margin:0; }
         | .donateAmount label { padding:10px 20px; font-size:48px; }
         | .cause-title {}
+        | .profile { color:# }
+        | .profile-avatar { width:50px; height:50px; background-size:cover; display:inline-block; float:left; }
+        | .profile-rating { float:right; }
+        | .profile-details { margin-left:20px; display:inline-block; float:left; }
+        | .profile-total-donations { float:right; clear:right; }
 
     .container
+        .profile.well
+            .profile-avatar.circular(style="background-image:url('#{profile_avatar}')")
+            .profile-details
+                b #{profile_firstName} 
+                br
+                | #{profile_lastName} 
+            .profile-rating
+                i.fa.fa-heart
+                i.fa.fa-heart
+                i.fa.fa-heart
+                i.fa.fa-heart-o
+                i.fa.fa-heart-o
+            .profile-total-donations 
+                span.small Total donations: 
+                | 1,150$
+
+            .clearfix
+                
+
         form(action='/pay', method='post')
             input(type='hidden', name='id', id='id' , value='#{id}') 
-            h1.cause-title.jumbotron #{fullname}
+            div(style='color:white') Donate for cause:
+            .jumbotron
+                h1.cause-title #{cause_title}
             div.cause-image.circular
             .jumbotron
                 p.cause-description.  #{description}
                 br 
                 .progress
-                    .progress-bar(role="progressbar", aria-valuenow="60", aria-valuemin="0", aria-valuemax="100", style="width: 60%;")
+                    .progress-bar(role="progressbar", aria-valuenow="#{donation_current}", aria-valuemin="0", aria-valuemax="#{donation_target}", style="width: #{(donation_current / donation_target) * 100}%;")
                     span.sr-only 60% Complete
                 div.cause-progress.lead.text-center #{donation_current}$ / #{donation_target}$
                 .donateAmount
