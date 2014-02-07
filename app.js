@@ -4,7 +4,7 @@
 // static data libery
 
 var express = require('express');
-var passport = require('passport');
+//var passport = require('passport');
 var routes = require('./routes');
 var user = require('./routes/user');
 var donate = require('./routes/donate');
@@ -72,10 +72,10 @@ app.post('/pay', donate.donatePayPal);
 app.get('/profile/:id', user.profile);
 
 
+/*
 var passport = require('passport')
     , util = require('util')
     , FacebookStrategy = require('passport-facebook').Strategy;
-/*
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
