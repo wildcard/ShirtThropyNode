@@ -53,11 +53,11 @@ exports.donatePayPal = function(req, res){
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http:\/\/localhost:3000\/payments\/" + req.body.id + "\/success\/true",
-            "cancel_url": "http:\/\/localhost:3000\/payments\/" + req.body.id + "\/success\/false"
+            //"return_url": "http:\/\/localhost:3000\/payments\/" + req.body.id + "\/success\/true",
+            //"cancel_url": "http:\/\/localhost:3000\/payments\/" + req.body.id + "\/success\/false"
 
-            //"return_url": "http:\/\/ShirtThropy.kadosh.co\/payments\/" + req.body.id + "\/success\/true",
-            //"cancel_url": "http:\/\/ShirtThropy.kadosh.co\/payments\/" + req.body.id + "\/success\/false"
+            "return_url": "http:\/\/ShirtThropy.kadosh.co\/payments\/" + req.body.id + "\/success\/true",
+            "cancel_url": "http:\/\/ShirtThropy.kadosh.co\/payments\/" + req.body.id + "\/success\/false"
         },
         "transactions": [{
             "amount": {
