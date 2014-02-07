@@ -9,8 +9,6 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var donate = require('./routes/donate');
 
-
-
 var http = require('http');
 var path = require('path');
 
@@ -21,7 +19,7 @@ var helpUs = require('./routes/helpUs');
 
 var app = express();
 
-// app.use(express.session({secret: '1234567890QWERTY'}));
+
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -34,9 +32,10 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.cookieParser());
 app.use(express.bodyParser());
-app.use(express.session({ secret: 'keyboard cat' }));
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(express.session({secret: '1234567890QWERTY'}));
+//app.use(express.session({ secret: 'keyboard cat' }));
+//app.use(passport.initialize());
+//app.use(passport.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -76,7 +75,7 @@ app.get('/profile/:id', user.profile);
 var passport = require('passport')
     , util = require('util')
     , FacebookStrategy = require('passport-facebook').Strategy;
-
+/*
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
@@ -84,7 +83,9 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done) {
     done(null, obj);
 });
+*/
 
+/*
 app.get('/login', function (req, res) {
 
     var user = req.session.user;
@@ -119,6 +120,7 @@ app.get('/auth/facebook', passport.authenticate('facebook', { display: 'touch' }
 app.get('/auth/facebook/callback',
     passport.authenticate('facebook', { successRedirect: '/profile/1', failureRedirect: '/login' })
 );
+*/
 
 // database
 var dirty = require('dirty');
