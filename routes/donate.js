@@ -54,10 +54,6 @@ exports.donatePayPalApprove = function(req, res){
 };
 
 exports.donatePayPal = function(req, res){
-    // TODO: call to paypal api
-    // req.form.amount
-    // req.form.id
-
     var paypal_api = require('paypal-rest-sdk');
 
     var config_opts = {
@@ -73,22 +69,22 @@ exports.donatePayPal = function(req, res){
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http:\/\/localhost:3000\/payments\/" + req.body.id + "\/success\/true",
-            "cancel_url": "http:\/\/localhost:3000\/payments\/" + req.body.id + "\/success\/false"
+            //"return_url": "http:\/\/localhost:3000\/payments\/" + req.body.id + "\/success\/true",
+            //"cancel_url": "http:\/\/localhost:3000\/payments\/" + req.body.id + "\/success\/false"
 
-            //"return_url": "http:\/\/ShirtThropy.kadosh.co\/payments\/" + req.body.id + "\/success\/true",
-            //"cancel_url": "http:\/\/ShirtThropy.kadosh.co\/payments\/" + req.body.id + "\/success\/false"
+            "return_url": "http:\/\/ShirtThropy.kadosh.co\/payments\/" + req.body.id + "\/success\/true",
+            "cancel_url": "http:\/\/ShirtThropy.kadosh.co\/payments\/" + req.body.id + "\/success\/false"
         },
         "transactions": [{
             "amount": {
                 "currency": "USD",
-                "total": req.body.amount,
+                "total": req.body.amount
                 //"details": {
                 //    "subtotal": req.body.amount * 0.9,
                 //    "tax": req.body.amount * 0.1
                 //}
             },
-            "description": "This is the payment description."
+            "description": 'Donation to the "Nitzaney Rishon" Charity.'
         }]
     };
 
@@ -108,7 +104,7 @@ exports.donatePayPal = function(req, res){
                 for(var i=0; i < payment.links.length; i++) {
                     var link = payment.links[i];
                     if (link.method === 'REDIRECT') {
-                        redirectUrl = link.href;
+                        redirectUrl = link.href + '&useraction=commit';
                     }
                 }
                 res.redirect(redirectUrl);
