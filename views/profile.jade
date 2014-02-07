@@ -1,14 +1,21 @@
 
 extends layout
 block content
-    .container
+    .container.text-center
         if(user)
+           
+            h1 
+                b #{user.fname}
+            h2 #{user.lname}
+            br 
+
+            img(src='#{user.avatar}').profile-avatar.circular
+            
+            br 
+            br 
+
             .profile.well
-                img(src='#{user.avatar}').profile-avatar.circular
                 .profile-details
-                    b #{user.fname}
-                    br
-                    | #{user.lname}
                 .profile-rating
                     - for (var x = 1; x < user.data.rank; x++)
                     i.fa.fa-heart
