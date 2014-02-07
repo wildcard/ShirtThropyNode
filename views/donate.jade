@@ -9,7 +9,7 @@ block content
         | .btnDonate { padding:5px 20px; width:100%; font-size:36px; }
         | .cause-progress { font-size:24px; }
         | .donateAmount { width:100%; text-align:center; margin:0; }
-        | .donateAmount label { padding:10px 20px; font-size:48px; }
+        | .donateAmount label { padding:10px; font-size:38px; }
         | .cause-title {}
         | .profile { color:# }
         | .profile-avatar { width:50px; height:50px; background-size:cover; display:inline-block; float:left; }
@@ -51,7 +51,7 @@ block content
                     span.sr-only 60% Complete
                 div.cause-progress.lead.text-center #{donation_current}$ / #{donation_target}$
                 .donateAmount
-                    .btn-group(data-toggle="buttons")
+                    .btn-group.btn-group-justified(data-toggle="buttons")
                         label.btn.btn-info
                             input(type="radio", name="amount", id="1", value="1")
                             | 1$
