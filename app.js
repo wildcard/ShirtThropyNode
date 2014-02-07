@@ -9,6 +9,8 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var donate = require('./routes/donate');
 
+
+
 var http = require('http');
 var path = require('path');
 
@@ -19,8 +21,7 @@ var helpUs = require('./routes/helpUs');
 
 var app = express();
 
-app.use(express.cookieParser());
-app.use(express.session({secret: '1234567890QWERTY'}));
+// app.use(express.session({secret: '1234567890QWERTY'}));
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -31,6 +32,11 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
+app.use(express.cookieParser());
+app.use(express.bodyParser());
+app.use(express.session({ secret: 'keyboard cat' }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -66,7 +72,46 @@ app.post('/pay', donate.donatePayPal);
 
 app.get('/profile/:id', user.profile);
 
-app.get('/login', user.login);
+
+var passport = require('passport')
+    , util = require('util')
+    , FacebookStrategy = require('passport-facebook').Strategy;
+
+passport.serializeUser(function(user, done) {
+    done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+    done(null, obj);
+});
+
+app.get('/login', function (req, res) {
+
+    var user = req.session.user;
+
+    if(user)
+        res.redirect('profile/' + user.id);
+
+    passport.use({usernameField: 'emailAddress'}, new FacebookStrategy({
+            clientID: "289494961199568",
+            clientSecret: "9cc4960a1f635f92f9803cb26e1239b3",
+            callbackURL: "http://localhost:3000/auth/facebook/callback"
+            //callbackURL: "http://ShirtThropy.kadosh.co/auth/facebook/callback"
+        },
+        function(accessToken, refreshToken, profile, done) {
+
+            console.log(profile);
+
+            return done(null, profile);
+        }
+    ));
+
+    var dirty = require('dirty');
+    var db = dirty('user.db');
+    db.set(user.id, user);
+
+    res.redirect('profile/' + req.params.id);
+});
 
 app.get('/auth/facebook', passport.authenticate('facebook', { display: 'touch' }));
 

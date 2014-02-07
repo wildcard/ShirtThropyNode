@@ -19,7 +19,10 @@ block content
         br
         br
         br
-        h1(style='font-size:48pt;') Thank You #{user.fname} #{user.lname}.
+        if(user)
+            h1(style='font-size:48pt;') Thank You #{user.fname} #{user.lname}.
+        else
+            h1(style='font-size:48pt;') Thank You.
         br
         h2(style='font-size:18pt;') You helped us, 
         h2(style='font-size:18pt;') and we want to help you. 
@@ -33,12 +36,14 @@ block content
             h2 Summary
             .profile.well
                 .profile-rating
-                    - for (var x = 1; x < #{user.data.rank}; x++)
+                    - for (var x = 1; x <= user.data.rank; x++)
                         i.fa.fa-heart
-                    - for (var x = 1; x < (5 - #{user.data.rank}); x++)
+                    - for (var x = 1; x <= (5 - user.data.rank); x++)
                         i.fa.fa-heart-o
                     .profile-total-donations
-                        span.small Total donations:
-                        | #{user.data.total_donations}$
+                        if(user)
+                            span.small Total donations:
+                            | #{user.data.total_donations}$
             .contest.well
+                
 
