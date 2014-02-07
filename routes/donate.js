@@ -78,11 +78,11 @@ exports.donatePayPal = function(req, res){
         "transactions": [{
             "amount": {
                 "currency": "USD",
-                "total": req.body.amount
-                //"details": {
-                //    "subtotal": req.body.amount * 0.9,
-                //    "tax": req.body.amount * 0.1
-                //}
+                "total": req.body.amount,
+                "details": {
+                    "subtotal": req.body.amount > 9 ? req.body.amount * 0.9 : req.body.amount,
+                    "tax": req.body.amount > 9 ? req.body.amount * 0.1: 0
+                }
             },
             "description": 'Donation to the "Nitzaney Rishon" Charity.'
         }]

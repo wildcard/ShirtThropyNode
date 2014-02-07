@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="acbdefe6-2ecc-4a1d-a042-4ea2cfb7571f" name="Default" comment="add facebook login">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/profile.html" afterPath="$PROJECT_DIR$/views/profile.html" />
+    <list default="true" id="acbdefe6-2ecc-4a1d-a042-4ea2cfb7571f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/donate.jade" afterPath="$PROJECT_DIR$/views/donate.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/donate.js" afterPath="$PROJECT_DIR$/routes/donate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/thankyou.jade" afterPath="$PROJECT_DIR$/views/thankyou.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ShirtThropyNode.iws" />
@@ -28,19 +28,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="sections.db" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sections.db">
+      <file leaf-file-name="donate.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/donate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+            <state line="83" column="73" selection-start="2881" selection-end="2881" vertical-scroll-proportion="0.0" vertical-offset="1043" max-vertical-offset="1800">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
+      <file leaf-file-name="thankyou.jade" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/thankyou.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="458" selection-end="458" vertical-scroll-proportion="-9.807693" vertical-offset="60" max-vertical-offset="2760">
+            <state line="15" column="8" selection-start="637" selection-end="637" vertical-scroll-proportion="0.52693206" vertical-offset="0" max-vertical-offset="765">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sections.db" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sections.db">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
               <folding />
             </state>
           </provider>
@@ -100,19 +109,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="1" selection-start="211" selection-end="211" vertical-scroll-proportion="0.3966346" vertical-offset="0" max-vertical-offset="416">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="user.db" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user.db">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0" vertical-offset="2454" max-vertical-offset="2880">
+            <state line="48" column="0" selection-start="1776" selection-end="1776" vertical-scroll-proportion="0.0" vertical-offset="2904" max-vertical-offset="3330">
               <folding />
             </state>
           </provider>
@@ -139,11 +139,11 @@
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/routes/user.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/routes/donate.js" />
         <option value="$PROJECT_DIR$/views/donate.jade" />
         <option value="$PROJECT_DIR$/views/thankyou.jade" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -278,20 +278,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ShirtThropyNode" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ShirtThropyNode" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -418,7 +404,15 @@
       <created>1391756579106</created>
       <updated>1391756579106</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add facebook login">
+      <created>1391757114287</created>
+      <updated>1391757114287</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fixes before presentation">
+      <created>1391762384173</created>
+      <updated>1391762384173</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -485,10 +479,11 @@
     <MESSAGE value="fix layout for mobile" />
     <MESSAGE value="set donate return url to prod" />
     <MESSAGE value="fix modal binding with modal&#10;add profile&#10;add user managent" />
-    <MESSAGE value="add facebook login" />
     <MESSAGE value="finish touches" />
     <MESSAGE value="fixes for heroku" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes for heroku" />
+    <MESSAGE value="add facebook login" />
+    <MESSAGE value="fixes before presentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes before presentation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -542,7 +537,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="3" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="210">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -616,7 +611,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="3" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="210">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -683,7 +678,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="3" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="255">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -800,27 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/donate.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="56" selection-start="2940" selection-end="2940" vertical-scroll-proportion="0.54332554" vertical-offset="638" max-vertical-offset="1065">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/donate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="8" selection-start="1269" selection-end="1269" vertical-scroll-proportion="0.3325527" vertical-offset="458" max-vertical-offset="1860">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/thankyou.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="16" selection-start="771" selection-end="771" vertical-scroll-proportion="0.36619717" vertical-offset="159" max-vertical-offset="825">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sections.db">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="439">
@@ -830,7 +804,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/user.db">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0" vertical-offset="2454" max-vertical-offset="2880">
+        <state line="48" column="0" selection-start="1776" selection-end="1776" vertical-scroll-proportion="0.0" vertical-offset="2904" max-vertical-offset="3330">
           <folding />
         </state>
       </provider>
@@ -839,7 +813,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="0" selection-start="1099" selection-end="1099" vertical-scroll-proportion="0.625" vertical-offset="550" max-vertical-offset="990">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -861,6 +835,27 @@
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="1" selection-start="211" selection-end="211" vertical-scroll-proportion="0.3966346" vertical-offset="0" max-vertical-offset="416">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/donate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="73" selection-start="2881" selection-end="2881" vertical-scroll-proportion="0.0" vertical-offset="1043" max-vertical-offset="1800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/donate.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="60" selection-start="3201" selection-end="3201" vertical-scroll-proportion="0.6487119" vertical-offset="638" max-vertical-offset="1065">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/thankyou.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="8" selection-start="637" selection-end="637" vertical-scroll-proportion="0.52693206" vertical-offset="0" max-vertical-offset="765">
           <folding />
         </state>
       </provider>
