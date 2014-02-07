@@ -25,13 +25,13 @@ exports.donate = function(req, res){
 
     var cause = {
         id: req.params.id,
-        image: '/public/img/Homelessman.jpg',
+        image: '/public/img/NitzaneyRishon_Logo.jpg',
         user : req.session.user,
         // profile_avatar: '/public/img/profile-avatar.jpg',
         // profile_firstName: 'Kobi',
         // profile_lastName: 'Kadosh',
-        cause_title: 'Charles Homelessman',
-        description: 'Was a British politician who was the Prime Minister of the United Kingdom from 1940 to 1945 and again from 1951 to 1955. Widely regarded as one of the greatest wartime leaders of the 20th century, Churchill was also an officer in the British Army, a historian, a writer, and an artist. He is the only British Prime Minister to have won the Nobel Prize in Literature, and was the first person to be made an honorary citizen of the United States.',
+        cause_title: 'Nitzaney Rishon Charity',
+        description: 'For more than 100 years, Big Brothers Big Sisters has operated under the belief that inherent in every child is the ability to succeed and thrive in life. As the nation’s largest donor and volunteer supported mentoring network, Big Brothers Big Sisters makes meaningful, monitored matches between adult volunteers (“Bigs”) and children (“Littles”), ages 6 through 18, in communities across the country. We develop positive relationships that have a direct and lasting effect on the lives of young people.',
         donation_current: 39.34,
         donation_target: 80.01
     }
