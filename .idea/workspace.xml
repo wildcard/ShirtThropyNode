@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="acbdefe6-2ecc-4a1d-a042-4ea2cfb7571f" name="Default" comment="design donate page money amount">
+    <list default="true" id="acbdefe6-2ecc-4a1d-a042-4ea2cfb7571f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.jade" afterPath="$PROJECT_DIR$/views/layout.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -47,7 +47,7 @@
       <file leaf-file-name="layout.jade" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/layout.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="22" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.913349" vertical-offset="0" max-vertical-offset="570">
+            <state line="3" column="16" selection-start="41" selection-end="41" vertical-scroll-proportion="0.12096774" vertical-offset="0" max-vertical-offset="570">
               <folding />
             </state>
           </provider>
@@ -365,7 +365,11 @@
       <created>1391732129668</created>
       <updated>1391732129668</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="design donate page money amount">
+      <created>1391733836591</created>
+      <updated>1391733836591</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -726,7 +730,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/layout.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="22" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.913349" vertical-offset="0" max-vertical-offset="570">
+        <state line="3" column="16" selection-start="41" selection-end="41" vertical-scroll-proportion="0.12096774" vertical-offset="0" max-vertical-offset="570">
           <folding />
         </state>
       </provider>
