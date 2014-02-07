@@ -3,12 +3,12 @@ extends layout
 block content
     style(type='text/css')
         | body { padding:0; }
-        | .intro-header { margin:50px auto; width:400px; text-align:center; }
+        | .intro-header { margin:50px auto; width:430px; text-align:center; }
         | .intro-header h1 { margin:0; }
         | .intro-header h2 { margin:0; }
         | .button { border:none; padding:10px; display:block; width:100%; margin:20px 0; cursor:pointer; text-align:center; text-decoration:none; }
         | .button h1 { margin: 10px 0 15px 0; }
-        | .profile-avatar { width:50px; height:50px; background-size:cover; display:inline-block; float:left; }
+        | .profile-avatar { width:80px; height:80px; background-size:cover; display:inline-block; float:left; }
 
     .intro-header
         if (user)
@@ -22,8 +22,9 @@ block content
     br
     br
     br
-    a.button(style='background:rgba(233,170,77, .6)', href='/auth/facebook', title='Login with Facebook')
-        h1 Login With Facebook
+    if(!user)
+        a.button(style='background:rgba(233,170,77, .6)', href='/auth/facebook', title='Login with Facebook')
+            h1 Login With Facebook
     a.button(style='background:rgba(233,170,77, .6)', href='/newCause')
         h1 New Cause
     a.button(style='background:rgba(0,121,193, .6)', href='/myDonations')
