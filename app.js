@@ -4,6 +4,7 @@
 // static data libery
 
 var express = require('express');
+var passport = require('passport');
 var routes = require('./routes');
 var user = require('./routes/user');
 var donate = require('./routes/donate');
@@ -66,6 +67,13 @@ app.post('/pay', donate.donatePayPal);
 app.get('/profile/:id', user.profile);
 
 app.get('/login', user.login);
+
+app.get('/auth/facebook', passport.authenticate('facebook', { display: 'touch' }));
+
+// TODO: user id
+app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', { successRedirect: '/profile/1', failureRedirect: '/login' })
+);
 
 // database
 var dirty = require('dirty');

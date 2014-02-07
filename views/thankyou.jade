@@ -27,7 +27,8 @@ block content
         br
         if(!user)
             .blockImage
-                img(src='/public/img/fb_login.png', width='400px')
+                a(href='/auth/facebook', title='Login with Facebook')
+                    img(src='/public/img/fb_login.png', width='400px')
         else
             h2 Summary
             .profile.well
