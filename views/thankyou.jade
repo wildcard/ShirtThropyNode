@@ -5,20 +5,39 @@ block content
         | .intro-header { margin: 50px auto; width: 400px; text-align: center; }
         | .intro-header h1 { margin: 0; }
         | .intro-header h2 { margin: 0; }
+        | .cause-image { width:200px; height:200px;);
+        |    background-size:cover; margin:auto; margin-bottom:-60px; z-index:1; position:relative; }
         | .button { border: none; padding: 10px; display: block; width: 100%; margin: 20px 0; cursor: pointer; text-align: center; text-decoration : none; }
     .intro-header
         br
         br
         br
         br
+        if(user)
+            .profile-image.circular
+                img(src='#{user.avatar}')
         br
         br
         br
-        br
-        h1(style='font-size:48pt;') Thank You.
+        h1(style='font-size:48pt;') Thank You #{user.fname} #{user.lname}.
         br
         h2(style='font-size:18pt;') You helped us, 
         h2(style='font-size:18pt;') and we want to help you. 
         br
-        .blockImage
-            img(src='/public/img/fb_login.png', width='400px')
+        br
+        if(!user)
+            .blockImage
+                img(src='/public/img/fb_login.png', width='400px')
+        else
+            h2 Summary
+            .profile.well
+                .profile-rating
+                    - for (var x = 1; x < #{user.data.rank}; x++)
+                        i.fa.fa-heart
+                    - for (var x = 1; x < (5 - #{user.data.rank}); x++)
+                        i.fa.fa-heart-o
+                    .profile-total-donations
+                        span.small Total donations:
+                        | #{user.data.total_donations}$
+            .contest.well
+

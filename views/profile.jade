@@ -1,6 +1,22 @@
 
 extends layout
 block content
-    h1= title
-    p Welcome to #{title}
-        span hello user
+    .container
+        if(user)
+            .profile.well
+                img(src='#{user.avatar}').profile-avatar.circular
+                .profile-details
+                    b #{user.fname}
+                    br
+                    | #{user.lname}
+                .profile-rating
+                    - for (var x = 1; x < user.data.rank; x++)
+                    i.fa.fa-heart
+                    - for (var x = 1; x < (5 - user.data.rank); x++)
+                    i.fa.fa-heart-o
+                .profile-total-donations
+                    span.small Total donations:
+                    | #{user.data.total_donations}$
+
+                .clearfix
+

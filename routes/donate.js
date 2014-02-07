@@ -6,12 +6,30 @@
 
 exports.donate = function(req, res){
     // TODO: call contoller to
+
+
+
+    var u2 = {
+        id: 2,
+        fname: "lior",
+        lname: "Kadosh",
+        avatar: '/public/img/profile-avatar.jpg',
+        causes: [1],
+        data: {
+            rank: 5,
+            total_donations: "2530",
+        }
+    }
+
+    req.session.user = u2;
+
     var cause = {
         id: req.params.id,
         image: '/public/img/Homelessman.jpg',
-        profile_avatar: '/public/img/profile-avatar.jpg',
-        profile_firstName: 'Kobi',
-        profile_lastName: 'Kadosh',
+        user : req.session.user,
+        // profile_avatar: '/public/img/profile-avatar.jpg',
+        // profile_firstName: 'Kobi',
+        // profile_lastName: 'Kadosh',
         cause_title: 'Charles Homelessman',
         description: 'Was a British politician who was the Prime Minister of the United Kingdom from 1940 to 1945 and again from 1951 to 1955. Widely regarded as one of the greatest wartime leaders of the 20th century, Churchill was also an officer in the British Army, a historian, a writer, and an artist. He is the only British Prime Minister to have won the Nobel Prize in Literature, and was the first person to be made an honorary citizen of the United States.',
         donation_current: 39.34,
@@ -23,10 +41,12 @@ exports.donate = function(req, res){
 exports.donatePayPalApprove = function(req, res){
     // return from paypal
 
-    // req.params.status;
-    // req.params.id;
+    req.session.last_cause_id = req.params.id;
+
+
+
     if(req.params.status){
-        res.render('thankyou', {  });
+        res.render('thankyou', { user: req.session.user });
     }
     else{
         // TODO: redierct to not successful

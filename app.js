@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -19,6 +18,9 @@ var helpUs = require('./routes/helpUs');
 
 var app = express();
 
+app.use(express.cookieParser());
+app.use(express.session({secret: '1234567890QWERTY'}));
+
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -33,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+    app.use(express.errorHandler());
 }
 
 // register router routes
@@ -44,15 +46,15 @@ app.get('/myDonations', myDonations.list);
 app.get('/helpUs', helpUs.list);
 app.get('/doante/:id', donate.donate);
 
-app.get('/public/*', function(req, res){
+app.get('/public/*', function (req, res) {
     res.sendfile(req.params[0], {root: './public'});
 });
 
-app.get('/bower_components/*', function(req, res){
+app.get('/bower_components/*', function (req, res) {
     res.sendfile(req.params[0], {root: './bower_components'});
 });
 
-app.get('/users', user.list);
+//app.get('/users', user.list);
 app.get('/donate/:id', donate.donate);
 
 // return from paypal
@@ -61,41 +63,61 @@ app.get('/payments/:id/success/:status', donate.donatePayPalApprove);
 // call to paypal
 app.post('/pay', donate.donatePayPal);
 
-app.get('/profile/:id', function(req, res){
-    // TODO: seeker profile
-});
+app.get('/profile/:id', user.profile);
+
+app.get('/login', user.login);
 
 // database
 var dirty = require('dirty');
 var db = dirty('user.db');
 
 var appDb = dirty('app.db'),
-    sectionsDb;
+    causesDb;
 
-db.on('load', function() {
-    db.set('john', {eyes: 'blue'});
-    console.log('Added john, he has %s eyes.', db.get('john').eyes);
+db.on('load', function () {
+    var u1 = {
+        id: 1,
+        fname: "Kobi",
+        lname: "Kadosh",
+        avatar: '/public/img/profile-avatar.jpg',
+        causes: [1],
+        data: {
+            rank: 3,
+            total_donations: "1500"
+        }
+    }
 
-    db.set('bob', {eyes: 'brown'}, function() {
-        console.log('User bob is now saved on disk.')
-    });
+    db.set('1', u1);
 
-    db.forEach(function(key, val) {
+    var u2 = {
+        id: 2,
+        fname: "lior",
+        lname: "Kadosh",
+        avatar: '/public/img/profile-avatar.jpg',
+        causes: [1],
+        data: {
+            rank: 5,
+            total_donations: "2530",
+        }
+    }
+
+    db.set('2', u2);
+
+    db.forEach(function (key, val) {
         console.log('Found key: %s, val: %j', key, val);
     });
 });
 
-db.on('drain', function() {
+db.on('drain', function () {
     console.log('All records are saved on disk now.');
 });
 
 //
 
 
-
 http.createServer(app).listen(
     app.get('port'),
-    function(){
-    console.log('Express server listening on port ' + app.get('port'));
+    function () {
+        console.log('Express server listening on port ' + app.get('port'));
     }
 );
